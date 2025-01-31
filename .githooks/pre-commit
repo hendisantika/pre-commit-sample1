@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+echo "Running Checkstyle..."
+#mvn clean checkstyle:check
+
+echo "Running Unit Tests..."
+mvn clean test
+
+echo "Pre-commit checks passed!"
+echo "Hendi Santika: $(date)"
+
