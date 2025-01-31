@@ -1,0 +1,17 @@
+#!/bin/bash
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Regex for Conventional Commit format
+CONVENTIONAL_COMMIT_REGEX="^(feat|fix|docs|style|refactor|perf|test|chore|revert)(\\(.*\\))?: .+"
+
+if ! echo "$COMMIT_MSG" | grep -Eq "$CONVENTIONAL_COMMIT_REGEX"; then
+    echo "Error: Commit message does not follow Conventional Commits format!"
+    echo "Example: 'feat: add new authentication flow'"
+    echo "Hendi Santika: $(date)"
+    exit 1
+fi
+
+echo "Commit message follows Conventional Commits format."
+echo "Hendi Santika: $(date)"
